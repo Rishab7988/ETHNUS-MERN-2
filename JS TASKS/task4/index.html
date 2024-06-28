@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS task 4</title>
+</head>
+
+<body>
+
+    <div class="box">
+        <button class="date">show date</button>
+        <p class="display-date"></p>
+
+        <button class="time">show time</button>
+        <p class="display-time"></p>
+    </div>
+
+
+
+
+    <script>
+        months=['January','February','March','April','May','June','July','August','September','October','November','December']
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = parseInt(String(today.getMonth() + 1).padStart(2, '0'));
+        var mth=months[mm];
+        var yyyy = today.getFullYear();
+
+        today = dd + '/' + mth + '/' + yyyy;
+        
+        let date = false;
+        let time = false;
+
+        let btn1=document.getElementsByClassName('date');
+        let btn2=document.getElementsByClassName('time');
+        btn1=btn1[0];
+        btn2=btn2[0];
+        btn1.addEventListener("click",()=>{
+            date=!date;
+            let p1=document.querySelector('.display-date');
+            if(date){
+                p1.innerHTML=today;
+            }
+            else{
+                p1.innerHTML=null;
+            }
+
+            console.log(date,p1.innerHTML);
+        })
+        btn2.addEventListener("click",()=>{
+            time=!time;
+            let p1=document.querySelector('.display-time');
+            let date = new Date()
+            let tm = date.toString()
+            if(time){
+                p1.innerHTML=tm;
+            }
+            else{
+                p1.innerHTML=null;
+            }
+        })
+
+    </script>
+</body>
+
+</html>

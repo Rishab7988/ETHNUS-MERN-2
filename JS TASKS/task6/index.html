@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS task 6</title>
+    <style>
+        * {
+            font-size: 16px;
+        }
+
+        .person-icon {
+            /* height: 100%; */
+            width: 100%;
+            background-color: rgb(230, 222, 222);
+            /* padding: 6px; */
+        }
+
+        .container {
+            max-width: 400px;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        .box {
+            background-color: aliceblue;
+            padding: 0px 30px;
+            padding-bottom: 10px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .input {
+            border: 1px solid grey;
+            display: grid;
+            grid-template-columns: 1fr 5fr;
+            border-radius: 1px;
+            margin-bottom: 10px;
+        }
+
+        .username {
+            border: none;
+        }
+
+        .username:focus {
+            outline: none;
+        }
+
+
+        button {
+            background-color: rgb(61, 121, 232);
+            color: white;
+            text-align: center;
+            width: 100%;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 5px;
+            border: none;
+            padding: 5px 0px;
+        }
+
+        button:hover {
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .lower {
+            margin-top: 10px;
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .end {
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <h1>Instagram</h1>
+            <div class="input needs-validation">
+                <box-icon name='user' class="person-icon"></box-icon>
+                <input type="text" placeholder="Username" class="username">
+            </div>
+
+            <div class="input needs-validation">
+                <box-icon name='user' class="person-icon"></box-icon>
+                <input type="password" placeholder="Password" class="username">
+            </div>
+
+            <button>Log in</button>
+
+
+            <div class="lower">
+                <div>
+                    <input type="checkbox">Remember me
+                </div>
+                <span><a href="#">Forgot password?</a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="end">Don't have an account! <a href="">Sign up here</a></div>
+
+
+
+
+
+
+
+
+
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
+    <script>
+        (function () {
+            'use strict'
+            var forms = document.querySelectorAll('.needs-validation')
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
+</body>
+
+</html>
